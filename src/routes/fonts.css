@@ -1,0 +1,35 @@
+@font-face {
+  font-family: MacPawFixel;
+  src: url("$lib/fonts/MacPawFixelText/MacPawFixelText-Light.woff2");
+  font-weight: 300;
+}
+@font-face {
+  font-family: MacPawFixel;
+  src: url("$lib/fonts/MacPawFixelText/MacPawFixelText-Regular.woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: MacPawFixel;
+  src: url("$lib/fonts/MacPawFixelText/MacPawFixelText-Medium.woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: MacPawFixel;
+  src: url("$lib/fonts/MacPawFixelText/MacPawFixelText-SemiBold.woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: MacPawFixelText;
+  src: url("$lib/fonts/MacPawFixelText/MacPawFixelText-Bold.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: MacPawFixel;
+  src: url("$lib/fonts/MacPawFixelText/MacPawFixelText-Black.woff2");
+  font-weight: 900;
+}
+@font-face {
+  font-family: Lora;
+  src: url("$lib/fonts/Lora/Lora-Medium.woff2");
+  font-weight: 500;
+}
