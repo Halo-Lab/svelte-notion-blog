@@ -1,0 +1,32 @@
+{
+  "name": "svelte-notion-blog",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.1",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/adapter-netlify": "^1.0.0-next.88",
+    "@sveltejs/kit": "^1.5.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "postcss-load-config": "^4.0.1",
+    "svelte": "^3.54.0",
+    "svelte-preprocess": "^5.0.3",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@notionhq/client": "^2.2.5",
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
+    "notion-to-md": "^3.0.1",
+    "svelte-markdown": "^0.2.3",
+    "svelte-motion": "^0.11.5",
+    "swiper": "^8.4.6"
+  }
+}
