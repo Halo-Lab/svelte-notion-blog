@@ -1,7 +1,9 @@
 import { json } from "@sveltejs/kit";
 import { Client } from "@notionhq/client";
-import { NOTION_API_KEY, NOTION_DATABASE_ID } from "$env/static/private";
+//import { NOTION_API_KEY, NOTION_DATABASE_ID } from "$env/static/private";
 import { NotionToMarkdown } from "notion-to-md";
+const NOTION_API_KEY = import.meta.env.VITE_NOTION_API_KEY;
+const NOTION_DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
 
 const notion = new Client({ auth: NOTION_API_KEY });
 const n2md = new NotionToMarkdown({ notionClient: notion });
