@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { Motion } from "svelte-motion";
 </script>
 
@@ -21,6 +21,5 @@
       Check out our blog, where you will find a lot of useful information.
       Explore our guide on how to use the app.
     </p>
-  </Motion>
+  </Motion>  
 </div>
-

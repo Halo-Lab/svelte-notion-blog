@@ -2,10 +2,10 @@
   import { onMount } from 'svelte';
   import { flip } from "svelte/animate";
   import { fade } from 'svelte/transition';
-  import { tagFilterStore} from '../store.js';
+  import { tagFilterStore} from '../store.ts';
   import PostCard from './PostCard.svelte';
   import Loading from './Loading.svelte';
-  import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage.js';
+  import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage.ts';
 
   let allPosts = [];
   let posts = [];

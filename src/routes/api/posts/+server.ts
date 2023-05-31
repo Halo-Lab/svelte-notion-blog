@@ -5,19 +5,22 @@ import { NotionToMarkdown } from "notion-to-md";
 const NOTION_API_KEY = import.meta.env.VITE_NOTION_API_KEY;
 const NOTION_DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
 
+import type { PostType } from "../../../types/post.type";
+import type { NotionItem } from "../../../types/notionItem.type"
+
 const notion = new Client({ auth: NOTION_API_KEY });
 const n2md = new NotionToMarkdown({ notionClient: notion });
 const database_id = NOTION_DATABASE_ID;
 
-let payload = [];
+let payload: PostType[] = [];
 
-async function fetchPostText(id) {
+async function fetchPostText(id: string): Promise<string> {
   const mdBlocks = await n2md.pageToMarkdown(id);
   const mdString = n2md.toMarkdownString(mdBlocks);
-  return mdString;
+  return mdString.parent;
 }
 
-async function normalizeDataItem(item) {
+async function normalizeDataItem(item: NotionItem): Promise<PostType> {
   const { id, title, author, avatar_link, tag, image, post, date } =
     item.properties;
   const text = await fetchPostText(post.rich_text[0].plain_text);
@@ -38,13 +41,14 @@ async function normalizeDataItem(item) {
   };
 }
 
-const byField = (field) => {
-  return (a, b) => (a[field] > b[field] ? 1 : -1);
+const byField = (field: keyof PostType) => {
+  return (a: PostType, b: PostType) => (a[field] > b[field] ? 1 : -1);
 };
 
 async function fetchPosts() {
   const data = await notion.databases.query({ database_id: database_id });
-  payload = await Promise.all(data.results
+  const results = data.results as NotionItem[];
+  payload = await Promise.all(results
     .map((item) => normalizeDataItem(item)))
 }
 

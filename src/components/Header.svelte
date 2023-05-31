@@ -1,5 +1,5 @@
 <script lang="ts">
-  const logo: string = 'src/lib/images/logo.svg';
+  import logo from '$lib/images/logo.svg';
 
   const changeTheme = (): void => {
     if (document.documentElement) {

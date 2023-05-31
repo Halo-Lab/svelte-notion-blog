@@ -1,5 +1,5 @@
 <script lang="ts">
-  const logo: string = 'src/lib/images/logo.svg';
+  import logo from '$lib/images/logo.svg';
 </script>
 
 <footer class="footer">
@@ -8,6 +8,6 @@
       <img src={logo} alt="svelteIcon" class="logo w-20 h-5 xs:w-24 xs:h-6 object-contain object-left-center"/>
     </a>
     <p class="text-base">2023 @Svelte Blog</p>
-    <p class="font-semibold text-lg leading-normal text-title_color">GitHub</p>
+    <a href="https://github.com/Halo-Lab/svelte-notion-blog" target="_blank" class="font-semibold text-lg leading-normal text-title_color hover:text-text_color duration-300">GitHub</a>
   </div>
 </footer>

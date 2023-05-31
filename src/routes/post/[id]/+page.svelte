@@ -32,7 +32,7 @@
    if(!post.title) {
      post = await fetchPost();
    }   
-   source = post.text.parent;
+   source = post.text;
    isLoading = false;
   });
 </script>
