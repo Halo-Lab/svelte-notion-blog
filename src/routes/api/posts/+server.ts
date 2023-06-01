@@ -2,8 +2,8 @@ import { json } from "@sveltejs/kit";
 import { Client } from "@notionhq/client";
 //import { NOTION_API_KEY, NOTION_DATABASE_ID } from "$env/static/private";
 import { NotionToMarkdown } from "notion-to-md";
-const NOTION_API_KEY = import.meta.env.VITE_NOTION_API_KEY;
-const NOTION_DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
+const NOTION_API_KEY = process.env.VITE_NOTION_API_KEY;
+const NOTION_DATABASE_ID = process.env.VITE_NOTION_DATABASE_ID;
 
 import type { PostType } from "../../../types/post.type";
 import type { NotionItem } from "../../../types/notionItem.type"
