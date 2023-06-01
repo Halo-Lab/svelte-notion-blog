@@ -7,7 +7,7 @@ const config = {
   kit: {
     adapter: adapter({
       host: "0.0.0.0",
-      port: 5173,
+      port: 3000,
     }),
   },
   vite: {
