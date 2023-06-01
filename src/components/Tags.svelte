@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { Swiper, SwiperSlide } from 'swiper/svelte';
   import { Navigation } from 'swiper';
   import 'swiper/css';
@@ -13,7 +13,7 @@
     { name: 'E-Commerce Platforms', value: 'E-Commerce Platforms', id: 5 },
   ];
   
-  const filterPosts = async (tag) => {
+  const filterPosts = async (tag: string) => {
     tagFilterStore.set(tag);
   }
 </script>

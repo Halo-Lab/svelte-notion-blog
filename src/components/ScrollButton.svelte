@@ -1,22 +1,22 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let scrollBtnVisible: boolean = false;
+  let scrollBtnVisible = false;
 
-  const scrollToTop = (): void => {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   }
 
-  const handleScroll = (): void => {
+  const handleScroll = () => {
     scrollBtnVisible = window.pageYOffset > 300;
   };
 
   onMount(async () => {
    window.addEventListener('scroll', handleScroll);
-    return (): void => {
+    return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   });

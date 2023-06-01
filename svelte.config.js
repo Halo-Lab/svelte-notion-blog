@@ -1,13 +1,14 @@
 import preprocess from "svelte-preprocess";
-// import adapter from "@sveltejs/adapter-auto";
-// import adapter from "@sveltejs/adapter-netlify";
 import adapter from "@sveltejs/adapter-node";
 import typescript from "@rollup/plugin-typescript";
 
 const config = {
   preprocess: preprocess(),
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      host: "0.0.0.0",
+      port: 5173,
+    }),
   },
   vite: {
     plugins: [typescript()],

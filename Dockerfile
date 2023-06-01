@@ -5,5 +5,5 @@ COPY ./package*.json /usr/src/app/
 RUN npm install && npm cache clean --force
 COPY ./ /usr/src/app
 RUN npm run build
-CMD npm run dev
+CMD ["node", "./build/index.js"]
 

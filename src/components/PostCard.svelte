@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PostType } from "../types/post.type";
 
-export let post: PostType;
+  export let post: PostType;
 </script>
 
 <div class="group w-full cursor-pointer max-w-[368px] bg-card_color rounded-3xl overflow-hidden hover:shadow-gray-300 hover:dark:shadow-gray-600 hover:shadow-md hover:shadow-inner duration-300">

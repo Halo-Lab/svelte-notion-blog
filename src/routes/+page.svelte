@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import MainPageTitle from '../components/MainPageTitle.svelte';
   import Tags from '../components/Tags.svelte';
   import Posts from '../components/Posts.svelte';

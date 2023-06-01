@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/stores';
   const params = $page.params.id;
@@ -7,13 +7,15 @@
   import PostPageTitle from '../../../components/PostPageTitle.svelte';
   import ScrollButton from '../../../components/ScrollButton.svelte';
 
-  let post = {};
+  import type { PostType } from "../../../types/post.type";
+
+  let post: Partial<PostType> = {};
   let source = '';
   let isLoading = true;
   
   const fetchPost = async () => {
     const response = await fetch('/api/posts');
-    const data = await response.json();
+    const data: PostType[] = await response.json();
     return data.filter(post => post.post === params)[0];
   };
 
@@ -21,8 +23,9 @@
     if (typeof localStorage !== 'undefined') {
       const storedPosts = localStorage.getItem('posts');
       if (storedPosts) {
-        const data = JSON.parse(storedPosts);
-        post = data.find(post => post.title.toLowerCase().replaceAll(' ', '-') === params);
+        const data: PostType[] = JSON.parse(storedPosts);
+        const currentPost = data.find(post => post.title.toLowerCase().split(' ').join('-') === params);
+        post = currentPost || post;        
       }
     }
   };
@@ -32,7 +35,7 @@
    if(!post.title) {
      post = await fetchPost();
    }   
-   source = post.text;
+   source = post.text || source;
    isLoading = false;
   });
 </script>
@@ -51,4 +54,3 @@
   </div>
   <ScrollButton />
 </div>
-

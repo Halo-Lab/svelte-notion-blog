@@ -1,23 +1,25 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
   import { flip } from "svelte/animate";
   import { fade } from 'svelte/transition';
-  import { tagFilterStore} from '../store.ts';
+  import { tagFilterStore} from '../store';
   import PostCard from './PostCard.svelte';
   import Loading from './Loading.svelte';
-  import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage.ts';
+  import { loadFromLocalStorage, saveToLocalStorage } from '../utils/localStorage';
 
-  let allPosts = [];
-  let posts = [];
+  import type { PostType } from "../types/post.type"
+
+  let allPosts: PostType[] = [];
+  let posts: PostType[] = [];
   let isLoading = true;
   $: tagFilter = $tagFilterStore;
 
-  const fetchPosts = async () => {
+  const fetchPosts = async (): Promise<PostType[]> => {
     const response = await fetch('/api/posts');    
     return await response.json();
   };
 
-  const filterPosts = (tag) => {
+  const filterPosts = (tag: string) => {
     posts = allPosts;
     setTimeout(() => {
       posts = allPosts.filter(post => tag !== 'All categories' ? post.tag === tag : post);
@@ -45,7 +47,7 @@
     <Loading />
   {/if}
   {#each posts as post (post.id)}
-    <a href={`/post/${post.title.toLowerCase().replaceAll(' ', '-')}`} in:fade animate:flip={{duration: 600}} >
+    <a href={`/post/${post.title.toLowerCase().split(' ').join('-')}`} in:fade animate:flip={{duration: 600}} >
       <PostCard {post} /> 
     </a> 
   {/each}
