@@ -5,10 +5,7 @@ import typescript from "@rollup/plugin-typescript";
 const config = {
   preprocess: preprocess(),
   kit: {
-    adapter: adapter({
-      host: "0.0.0.0",
-      port: 3000,
-    }),
+    adapter: adapter({ out: "build"}),
   },
   vite: {
     plugins: [typescript()],
