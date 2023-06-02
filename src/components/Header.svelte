@@ -1,5 +1,5 @@
 <script lang="ts">
-  const logo: string = 'src/lib/images/logo.svg';
+  import logo from '$lib/images/logo.svg';
 
   const changeTheme = (): void => {
     if (document.documentElement) {
@@ -15,6 +15,6 @@
     <a href="/" aria-label="Svelte Blog">
       <img src={logo} alt="svelteIcon" class="logo w-24 h-6 xs:w-32 xs:h-8 object-contain object-left-center"/>
     </a>
-    <button class="color-mode relative w-12 h-8 bg-cover bg-no-repeat bg-center cursor-pointer outline-none" on:click={changeTheme}></button>
+    <button class="color-mode relative w-12 h-8 bg-cover bg-no-repeat bg-center cursor-pointer outline-none" aria-label="change theme" on:click={changeTheme}></button>
   </div>
 </div>

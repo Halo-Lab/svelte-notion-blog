@@ -9,7 +9,6 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",
     "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/adapter-netlify": "^1.0.0-next.88",
     "@sveltejs/kit": "^1.5.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",
@@ -23,10 +22,12 @@
   "type": "module",
   "dependencies": {
     "@notionhq/client": "^2.2.5",
+    "@sveltejs/adapter-node": "^1.2.4",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "notion-to-md": "^3.0.1",
     "svelte-markdown": "^0.2.3",
     "svelte-motion": "^0.11.5",
-    "swiper": "^8.4.6"
+    "swiper": "^8.4.6",
+    "vite-plugin-environment": "^1.1.3"
   }
 }

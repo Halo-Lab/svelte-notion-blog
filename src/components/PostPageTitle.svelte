@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
   import { Motion } from "svelte-motion";
   import { onMount } from 'svelte';
   import Loading from "./Loading.svelte";
 
+  import type { PostType } from "../types/post.type";
+
   let isLoading = true;
-  export let post;
+  export let post: Partial<PostType>;
 
   onMount(() => {
     isLoading = false;

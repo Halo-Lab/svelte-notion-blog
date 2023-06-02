@@ -28,9 +28,20 @@ const config = {
         button_color: "var(--button-color)",
         border_color: "var(--border-color)",
       },
+      shadowColor: {
+        button_color: "var(--button-color)",
+      },
       fontFamily: {
         title: ["Lora"],
         text: ["MacPawFixel"],
+      },
+      animation: {
+        shine: "shine 1.5s",
+      },
+      keyframes: {
+        shine: {
+          "100%": { left: "125%" },
+        },
       },
     },
   },
