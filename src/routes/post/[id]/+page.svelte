@@ -16,25 +16,12 @@
   const fetchPost = async () => {
     const response = await fetch('/api/posts');
     const data: PostType[] = await response.json();
-    return data.filter(post => post.post === params)[0];
-  };
-
-  const loadFromLocalStorage = () => {
-    if (typeof localStorage !== 'undefined') {
-      const storedPosts = localStorage.getItem('posts');
-      if (storedPosts) {
-        const data: PostType[] = JSON.parse(storedPosts);
-        const currentPost = data.find(post => post.title.toLowerCase().split(' ').join('-') === params);
-        post = currentPost || post;        
-      }
-    }
+    const currentPost = data.find(post => post.title.toLowerCase().split(' ').join('-') === params);
+    return currentPost;
   };
 
   onMount(async () => {
-   loadFromLocalStorage();
-   if(!post.title) {
-     post = await fetchPost();
-   }   
+   post = await fetchPost() || {};  
    source = post.text || source;
    isLoading = false;
   });

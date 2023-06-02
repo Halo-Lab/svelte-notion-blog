@@ -27,18 +27,16 @@
   }
   
   onMount(async () => {
-    allPosts = loadFromLocalStorage(allPosts, tagFilterStore);
-    if (!allPosts.length) {
-      allPosts = await fetchPosts();
-      saveToLocalStorage(allPosts, tagFilter);
-    }
+    loadFromLocalStorage(tagFilterStore);
+    allPosts = await fetchPosts();
+    saveToLocalStorage(tagFilter);
     filterPosts(tagFilter);
     isLoading = false;
   });
 
   $: {
     filterPosts(tagFilter);
-    saveToLocalStorage(allPosts, tagFilter);
+    saveToLocalStorage(tagFilter);
   }
 </script>
 

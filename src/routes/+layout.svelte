@@ -6,29 +6,10 @@
   import "./styles.css";
 </script>
 
-<div class="app">
+<div class="app flex flex-col min-h-screen">
   <Header />
-  <main>
+  <main class="bg-background_color min-h-[calc(100vh_-_300px)] sm:min-h-full">
     <slot />
   </main>
   <Footer />
 </div>
-
-<style>
-  .app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  main {
-    background-color: var(--background-color);
-    min-height: calc(100vh - 300px);
-  }
-
-@media (max-width: 540px) {
-  main {
-    min-height: auto;
-  }
-}
-</style>
