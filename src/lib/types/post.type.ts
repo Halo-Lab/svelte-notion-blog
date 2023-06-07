@@ -7,5 +7,5 @@ export type PostType = {
   image: string;
   post: string;
   date: string;
-  text: string;
+  text?: string;
 };
