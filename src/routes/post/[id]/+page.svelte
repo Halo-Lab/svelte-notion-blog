@@ -1,43 +1,20 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { page } from '$app/stores';
-  const params = $page.params.id;
-  import SvelteMarkdown from 'svelte-markdown';
-  import Loading from '../../../components/Loading.svelte';  
-  import PostPageTitle from '../../../components/PostPageTitle.svelte';
-  import ScrollButton from '../../../components/ScrollButton.svelte';
+  import SvelteMarkdown from "svelte-markdown";
+  import PostPageTitle from "$lib/components/PostPageTitle.svelte";
+  import ScrollButton from "$lib/components/ScrollButton.svelte";
+  import StyledMarkdown from "$lib/components/StyledMarkdown.svelte";
 
-  import type { PostType } from "../../../types/post.type";
-
-  let post: Partial<PostType> = {};
-  let source = '';
-  let isLoading = true;
-  
-  const fetchPost = async () => {
-    const response = await fetch('/api/posts');
-    const data: PostType[] = await response.json();
-    const currentPost = data.find(post => post.title.toLowerCase().split(' ').join('-') === params);
-    return currentPost;
-  };
-
-  onMount(async () => {
-   post = await fetchPost() || {};  
-   source = post.text || source;
-   isLoading = false;
-  });
+  export let data;
 </script>
 
 <svelte:head>
-	<title>{post.title}</title>
+  <title>{data.post.title}</title>
 </svelte:head>
 
-{#if isLoading}
-  <Loading />
-{/if}
-<div class="flex flex-col items-center w-full max-w-[972px] mx-auto px-0 pt-12 xs:px-4 xs:pt-16">
-  <PostPageTitle {post} />
-  <div class="post-text flex flex-col items-center w-[680px] max-w-[calc(100%-32px)] mx-auto mt-10 text-base font-normal leading-6 color-text_color">
-    <SvelteMarkdown {source} />      
-  </div>
+<div
+  class="flex flex-col items-center w-full max-w-[972px] mx-auto px-0 pt-12 xs:px-4 xs:pt-16"
+>
+  <PostPageTitle post={data.post} />
+  <StyledMarkdown source={data.post.text} />
   <ScrollButton />
 </div>
