@@ -1,14 +1,15 @@
 <script lang="ts">
-  import MainPageTitle from '../components/MainPageTitle.svelte';
-  import Tags from '../components/Tags.svelte';
-  import Posts from '../components/Posts.svelte';
+  import MainPageTitle from "$lib/components/MainPageTitle.svelte";
+  import Tags from "$lib/components/Tags.svelte";
+  import Posts from "$lib/components/Posts.svelte";
+  export let data;
 </script>
 
 <svelte:head>
-	<title>svelte notion blog</title>
-	<meta name="description" content="svelte notion blog demo app" />
+  <title>svelte notion blog</title>
+  <meta name="description" content="svelte notion blog demo app" />
 </svelte:head>
 
 <MainPageTitle />
 <Tags />
-<Posts />
+<Posts posts={data.posts} />

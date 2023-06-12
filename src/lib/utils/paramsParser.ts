@@ -1,0 +1,1 @@
+export const parseToSnakeView = (title:string) => title.toLowerCase().replaceAll(" ","-");
